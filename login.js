@@ -13,7 +13,7 @@ const app = Vue.createApp({
             fd.append("email", this.email);
             fd.append("passwd", this.passwd);
 
-            fetch("http://127.0.0.1:5000/login", {
+            fetch("https://api.zube.dev/login", {
                 body: fd,
                 method: "POST",
                 mode: "no-cors"

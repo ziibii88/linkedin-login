@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    command: >
+      sh -c "python api.py"
+    restart: unless-stopped
