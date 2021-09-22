@@ -11,3 +11,14 @@ services:
     command: >
       sh -c "python api.py"
     restart: unless-stopped
+
+  openresty:
+    image: openresty/openresty:alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./linkedin.conf:/etc/nginx/conf.d/default.conf
+      - .:/linkedin-login
